@@ -1,3 +1,5 @@
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.*;
 
 /**
  * The Viewer from the MVC pattern, this should be instantiated 
@@ -25,5 +27,26 @@ public class Viewer
 	public static void out(String string_)
 	{
 		System.out.println(string_);
+	}
+	/**
+     * Create OpenGL Window
+     *
+     * @param win_x		Window width
+     * @param win_		Window height
+     * @param win_name	Window's name
+     * @author			Exac
+     * @since			1.0
+     */
+	public void create(int win_x, int win_y, String win_name)
+	{
+		try {
+			Display.setDisplayMode(new DisplayMode(win_x, win_y));
+			Display.setVSyncEnabled(true);
+			Display.setTitle(win_name);
+			Display.create();
+			out("Window created.");
+		} catch (LWJGLException e) {
+			e.printStackTrace();
+		}
 	}
 }

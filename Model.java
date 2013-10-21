@@ -15,6 +15,7 @@ public class Model
 	
 	Model()
 	{
-		Viewer.out("Model instantiated.");
+		//Open game window
+		v.create(640, 480, "Fire Side Stone");
 	}
 }
